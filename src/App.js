@@ -294,6 +294,7 @@ function App() {
         </Box>
       </Modal>
     </Grid>
+
     <div style={{display: saving}}>
       <Grid container spacing={2} ref={elementRef} sx={{backgroundColor: 'white', padding: '20px'}}>
         <Grid item xs={12}><strong>ราคา</strong>: {price.toLocaleString("en-US")}</Grid>
