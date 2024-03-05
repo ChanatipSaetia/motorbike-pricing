@@ -1,11 +1,11 @@
 import React from 'react'
-import logo from './logo.svg';
 import './App.css';
 import { Container, TextField, Grid, Divider, styled, Button, Modal, Box, IconButton } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import { toPng } from 'html-to-image';
 import Autocomplete from '@mui/material/Autocomplete';
 import data from './location.json'
+import {shareOnMobile} from 'react-mobile-share'
 
 const parsed_data = {}
 for (let d of data) {
@@ -141,10 +141,15 @@ function App() {
     if (saving == 'initial') {
       toPng(elementRef.current, { cacheBust: false })
       .then((dataUrl) => {
-        const link = document.createElement("a");
-        link.download = "my-image-name.png";
-        link.href = dataUrl;
-        link.click();
+        shareOnMobile({
+          text: "Hey checkout our package react-mobile-share",
+          title: "React-Mobile-Share",
+          images: [dataUrl],
+        })
+        // const link = document.createElement("a");
+        // link.download = "my-image-name.png";
+        // link.href = dataUrl;
+        // link.click();
         setSaving('none')
       })
       .catch((err) => {
@@ -249,8 +254,8 @@ function App() {
             inputValue={province}
             onInputChange={(event, newInputValue) => {
               setProvince(newInputValue);
-	      setAmphure("");
-	      setTambon("");
+              setAmphure("");
+              setTambon("");
             }}
             options={Object.keys(parsed_data)}
             sx={{ width: 300 }}
@@ -263,7 +268,7 @@ function App() {
             inputValue={amphure}
             onInputChange={(event, newInputValue) => {
               setAmphure(newInputValue);
-	      setTambon("");
+	            setTambon("");
             }}
             options={parsed_data[province] !== undefined ? Object.keys(parsed_data[province]) : []}
             sx={{ width: 300 }}
