@@ -153,7 +153,7 @@ export default function SingleCalculatorForm({
             </Stack>
 
             <Stack direction="row" spacing={0.75} sx={{ mt: 1, flexWrap: 'wrap', gap: 0.75 }}>
-              {[0, 10, 15, 20, 25, 30].map((pct) => (
+              {[0, 5, 10, 15, 20, 25, 30].map((pct) => (
                 <Chip
                   key={pct}
                   label={`ดาวน์ ${pct}%`}

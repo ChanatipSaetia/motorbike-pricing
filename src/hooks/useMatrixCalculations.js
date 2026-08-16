@@ -12,7 +12,7 @@ export function useMatrixCalculations(price, matrixDownOptionType) {
     if (matrixDownOptionType === 'baht') {
       downSteps = [0, 5000, 10000, 15000, 20000, 25000, 30000];
     } else {
-      downSteps = [0, 10, 15, 20, 25, 30].map(pct => Math.round((validPrice * pct) / 100));
+      downSteps = [0, 5, 10, 15, 20, 25, 30].map(pct => Math.round((validPrice * pct) / 100));
     }
 
     return downSteps.map((dAmount) => {
