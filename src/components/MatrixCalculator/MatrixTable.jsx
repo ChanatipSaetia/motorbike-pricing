@@ -160,7 +160,7 @@ export default function MatrixTable({
         </Stack>
 
         <TableContainer sx={{ borderRadius: 3, border: '2px solid var(--color-dark)', overflowX: 'auto' }}>
-          <Table sx={{ width: '100%', tableLayout: 'fixed' }}>
+          <Table sx={{ minWidth: isXL ? 1100 : 950 }}>
             <TableHead>
               <TableRow sx={{ bgcolor: 'var(--color-dark)' }}>
                 <TableCell sx={{ color: '#ffffff', fontWeight: 800, fontSize: isXL ? '1.25rem' : '1.1rem', py: 2, whiteSpace: 'nowrap' }}>
